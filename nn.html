@@ -1,0 +1,176 @@
+
+<style media="all">
+    html {
+      scroll-behavior: smooth;
+    }
+  
+    .parent {
+      position: relative;
+      background: #d5deff;
+      overflow: hidden;
+    }
+  
+    .box-shadow {
+      box-shadow: inset 0px 4px 30px #ffffff;
+    }
+  
+    .myWrapperP {
+      min-height: 200px;
+      position: relative;
+      z-index: 100;
+    }
+  
+    #scrollbtn {
+      display: hidden;
+    }
+  
+    .small {
+      background: #fc933d;
+      border-radius: 50%;
+      width: 180px;
+      height: 180px;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin-bottom: -40px;
+      margin-right: -40px;
+      /*z-index: 100;*/
+      transition: all 2s;
+    }
+  
+    .big {
+      background: #fc933d;
+      border-radius: 50% 50% 0 50%;
+      width: 2000px;
+      height: 2000px;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin-bottom: -200px;
+      margin-right: -200px;
+      /*z-index: 100;*/
+      transition: all 2s;
+    }
+  
+    @media only screen and (min-width: 920px) {
+      .myWrapperP {
+          padding: 80px 20px 20px 0;
+      min-height: 500px;
+      position: relative;
+      z-index: 100;
+    }
+  
+      .small {
+        background: #fc933d;
+        border-radius: 50%;
+        width: 350px;
+        height: 350px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin-bottom: -50px;
+        margin-right: -50px;
+        /*z-index: 100;*/
+        transition: all 2s;
+      }
+  
+      .big {
+        background: #fc933d;
+        border-radius: 50% 50% 0 50%;
+        width: 4000px;
+        height: 4000px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin-bottom: -500px;
+        margin-right: -500px;
+        /*z-index: 100;*/
+        transition: all 2s;
+      }
+    }
+  
+    @media only screen and (min-width: 1100px) {
+      .myWrapperP {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="parent">
+    <div class="myWrapperP">
+      <h1 class="myHeadingP">A fully integrated<br />suite for trading</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis et
+        pretium lacus aliquet lacus, gravida. Rhoncus fusce vitae mattis cursus
+        sagittis vel tempor tellus. Diam gravida et volutpat blandit. Facilisi
+        quam gravida pulvinar lorem enim convallis massa arcu egestas.
+      </p>
+  
+      <a
+        href="#"
+       
+      >
+        Know More
+      </a>
+    </div>
+    <a id="scrollbtn" href="#understandYouSection">yel</a>
+  
+    <div id="small" class="small box-shadow"></div>
+  </div>
+  
+  
+  
+  
+  
+   <script defer>
+          const circle = document.querySelector("#small");
+          const ContentWrapper = document.querySelector(".myWrapperP");
+  
+          let pagescroll;
+  
+          let devicewidth = screen.width;
+          console.log(devicewidth);
+  
+        function sectionscroll() {
+      document.getElementById("scrollbtn").click();
+      window.history.pushState({}, document.title, "/homapage-animated" + "");
+    }
+  
+          window.addEventListener("scroll", () => {
+              pagescroll = window.pageYOffset;
+  
+              if (devicewidth > 500) {
+  
+                  if (pagescroll > 2000) {
+                  circle.classList.remove("small");
+                  circle.classList.add("big");
+                  }
+                  
+              }
+              if(devicewidth < 500){
+                  if (pagescroll > 3200) {
+                  circle.classList.remove("small");
+                  circle.classList.add("big");
+                  }
+              }
+  
+            
+          });
+  
+          circle.addEventListener("transitionend", sectionscroll);
+          
+          
+      
+  
+      </script>
+  
+  
+  
